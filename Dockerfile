@@ -1,8 +1,8 @@
-FROM ros:kinetic
+FROM ros:melodic
 
-LABEL maintainer="iory ab.ioryz@gmail.com"
+LABEL maintainer="smihael smihael@gmail.com"
 
-ENV ROS_DISTRO kinetic
+ENV ROS_DISTRO melodic
 
 RUN apt -q -qq update && \
     DEBIAN_FRONTEND=noninteractive apt install -y \
@@ -11,7 +11,7 @@ RUN apt -q -qq update && \
     apt-transport-https
 
 RUN apt-key adv --keyserver keys.gnupg.net --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE || apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE
-RUN add-apt-repository -y "deb https://librealsense.intel.com/Debian/apt-repo xenial main"
+RUN add-apt-repository -y "deb https://librealsense.intel.com/Debian/apt-repo bionic main"
 RUN apt-get update -qq
 RUN apt-get install librealsense2-dkms --allow-unauthenticated -y
 RUN apt-get install librealsense2-dev --allow-unauthenticated -y
